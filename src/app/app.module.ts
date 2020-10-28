@@ -7,6 +7,8 @@ import { DemoComponent } from './demo/demo.component';
 
 import { HomeModule } from './home/home.module';
 import { Baitap2Module } from './baitap2/baitap2.module';
+import { DirectivesModule } from './directives/directives.module';
+import {Baitap6Module} from './baitap6/baitap6.module'
 
 // Module: Là một group các component, thông thường module được đóng gói thành
 // 1 chức năng cụ thể, hoặc 1 page
@@ -23,7 +25,14 @@ import { Baitap2Module } from './baitap2/baitap2.module';
   // Sử dụng router => RouterModule
   // Sử dụng để gọi api => HTTPClientModule
   // imports: là nơi khai báo các module muốn sử dụng
-  imports: [BrowserModule, HomeModule, Baitap2Module, FormsModule],
+  imports: [
+    BrowserModule,
+    HomeModule,
+    Baitap2Module,
+    FormsModule,
+    DirectivesModule,
+    Baitap6Module
+  ],
   // Nơi khai báo các services
   providers: [],
   // Chỉ khai báo ở AppModule
