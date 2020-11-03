@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let product of productList" class="col-sm-4">
+      <app-product-item
+        [product]="product"
+        (onAddToCart)="handleAddToCart($event)"
+      ></app-product-item>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,9 @@ import { DemoComponent } from './demo/demo.component';
 import { HomeModule } from './home/home.module';
 import { Baitap2Module } from './baitap2/baitap2.module';
 import { DirectivesModule } from './directives/directives.module';
-import {Baitap6Module} from './baitap6/baitap6.module'
+import { Baitap6Module } from './baitap6/baitap6.module';
+import { InteractionModule } from './interaction/interaction.module';
+import { ShopingModule } from './shoping/shoping.module';
 
 // Module: Là một group các component, thông thường module được đóng gói thành
 // 1 chức năng cụ thể, hoặc 1 page
@@ -31,7 +33,9 @@ import {Baitap6Module} from './baitap6/baitap6.module'
     Baitap2Module,
     FormsModule,
     DirectivesModule,
-    Baitap6Module
+    Baitap6Module,
+    InteractionModule,
+    ShopingModule,
   ],
   // Nơi khai báo các services
   providers: [],
