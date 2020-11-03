@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
@@ -11,6 +12,7 @@ import { DirectivesModule } from './directives/directives.module';
 import { Baitap6Module } from './baitap6/baitap6.module';
 import { InteractionModule } from './interaction/interaction.module';
 import { ShopingModule } from './shoping/shoping.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Module: Là một group các component, thông thường module được đóng gói thành
 // 1 chức năng cụ thể, hoặc 1 page
@@ -29,6 +31,7 @@ import { ShopingModule } from './shoping/shoping.module';
   // imports: là nơi khai báo các module muốn sử dụng
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HomeModule,
     Baitap2Module,
     FormsModule,
@@ -36,6 +39,7 @@ import { ShopingModule } from './shoping/shoping.module';
     Baitap6Module,
     InteractionModule,
     ShopingModule,
+    BrowserAnimationsModule,
   ],
   // Nơi khai báo các services
   providers: [],

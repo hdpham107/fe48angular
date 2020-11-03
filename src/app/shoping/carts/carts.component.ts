@@ -13,21 +13,19 @@ export class CartsComponent implements OnInit {
 
   handleAddToCart(product: any) {
     // Tìm xem sp đã tồn trong giỏ hàng hay chưa
-    const index = this.carts.findIndex(
-      (item) => item.id === product.id
-    );
+    const index = this.carts.findIndex((item) => item.id === product.id);
     // Chưa tồn tại
-    if(index === -1) {
+    if (index === -1) {
       const newProduct = {
         ...product,
-        quality: 1
-      }
+        quality: 1,
+      };
       this.carts.push(newProduct);
     } else {
       // Đã tồn tại
-      this.carts[index].quality += 1
+      this.carts[index].quality += 1;
     }
 
-    console.log(this.carts)
+    console.log(this.carts);
   }
 }

@@ -5,13 +5,17 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { CartsComponent } from './carts/carts.component';
 import { ShopingComponent } from './shoping.component';
 
-
+import { MaterialModule } from '../shared/material/material.module';
+import { PipeModule } from '../shared/pipe/pipe.module';
 
 @NgModule({
-  declarations: [ProductListComponent, ProductItemComponent, CartsComponent, ShopingComponent],
-  imports: [
-    CommonModule
+  declarations: [
+    ProductListComponent,
+    ProductItemComponent,
+    CartsComponent,
+    ShopingComponent,
   ],
-  exports: [ShopingComponent]
+  imports: [CommonModule, MaterialModule, PipeModule],
+  exports: [ShopingComponent],
 })
-export class ShopingModule { }
+export class ShopingModule {}
