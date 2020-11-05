@@ -2,17 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { DemoComponent } from './demo/demo.component';
-
-import { HomeModule } from './home/home.module';
-import { Baitap2Module } from './baitap2/baitap2.module';
-import { DirectivesModule } from './directives/directives.module';
-import { Baitap6Module } from './baitap6/baitap6.module';
-import { InteractionModule } from './interaction/interaction.module';
-import { ShopingModule } from './shoping/shoping.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Module: Là một group các component, thông thường module được đóng gói thành
 // 1 chức năng cụ thể, hoặc 1 page
@@ -24,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   // declarations: Là nơi khai báo các component do module quản lý
   // AppComponent đang được quản lý bởi AppModule
   // Một component không thể đứng 1 mình, nó phải được quản lý bới 1 module
-  declarations: [AppComponent, DemoComponent],
+  declarations: [AppComponent],
   // Trong angular ngoài các module do mình tự tạo, còn các module do angular cung cấp
   // Sử dụng router => RouterModule
   // Sử dụng để gọi api => HTTPClientModule
@@ -32,14 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule,
-    Baitap2Module,
     FormsModule,
-    DirectivesModule,
-    Baitap6Module,
-    InteractionModule,
-    ShopingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   // Nơi khai báo các services
   providers: [],

@@ -1,1 +1,24 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row">
+    <!-- Loading -->
+    <div *ngIf="loading" class="col-sm-12 text-center">
+      <span>Loading...</span>
+    </div>
+
+    <div *ngFor="let movie of movieList" class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" [src]="movie.hinhAnh" alt="" />
+        <div class="card-body">
+          <h4 class="card-title">{{ movie.tenPhim }}</h4>
+          <p class="card-text">{{ movie.moTa }}</p>
+          <button
+            class="btn btn-success"
+            routerLink="/movie/{{ movie.maPhim }}"
+          >
+            Chi tiết
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

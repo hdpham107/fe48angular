@@ -1,13 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// import { DemoComponent } from './demo/demo.component';
-// import { Baitap2Component } from './baitap2/baitap2.component';
-// import { Baitap6Component } from './baitap6/baitap6.component';
-
-// import { MainModule } from './main/main.module';
-// import { AdminModule } from './admin/admin.module';
-
 const routes: Routes = [
   // { path: '', component: DemoComponent },
   // { path: 'baitap2', component: Baitap2Component },
@@ -27,6 +20,13 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./main/main.module').then((m) => m.MainModule),
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
   },
 ];
 
