@@ -1,0 +1,12 @@
+<div
+  *ngIf="validator.invalid && (validator.touched || validator.dirty)"
+  class="alert alert-danger"
+>
+  <ng-container *ngFor="let item of validator.errors | keyvalue">
+    <!-- item.key: required/minlength/maxlength/pattern -->
+    <!-- item.value: true/false -->
+    <span *ngIf="item.value">
+      {{ message[name][item.key] }}
+    </span>
+  </ng-container>
+</div>

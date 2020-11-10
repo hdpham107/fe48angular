@@ -1,1 +1,106 @@
-<p>signup works!</p>
+<!-- Template-driven form -->
+<h1 class="text-center">Signup</h1>
+<!--
+  taiKhoan, matKhau, email, soDt, hoTen, maNhom
+-->
+
+<form #signupForm="ngForm" (ngSubmit)="handleSignup(signupForm)">
+  <div class="form-group">
+    <label for="taiKhoan">Tài khoản</label>
+    <!-- signupForm = {
+      value: {
+        taiKhoan: '123'
+      }
+    } -->
+    <!-- ngForm sẽ quản lý toàn bộ các ô input -->
+    <!-- Lấy name của input làm key -->
+    <!-- ngModel sẽ lấy giá trị của ô input làm value -->
+    <!-- #taiKhoan="ngModel" => lấy trạng thái của input gán cho biến taiKhoan -->
+    <input
+      type="text"
+      id="taiKhoan"
+      name="taiKhoan"
+      class="form-control"
+      ngModel
+      #taiKhoan="ngModel"
+      required
+      minlength="5"
+    />
+    <app-error-message
+      name="taiKhoan"
+      [validator]="taiKhoan"
+    ></app-error-message>
+    <!-- <div
+      *ngIf="taiKhoan.invalid && (taiKhoan.touched || taiKhoan.dirty)"
+      class="alert alert-danger"
+    >
+      <span *ngIf="taiKhoan.errors.required">
+        Tài khoản không được để trống
+      </span>
+      <span *ngIf="taiKhoan.errors.minlength">
+        Tài khoản phải có ít nhất 5 ký tự
+      </span>
+    </div> -->
+  </div>
+
+  <div class="form-group">
+    <label for="matKhau">Mật khẩu</label>
+    <input
+      type="password"
+      id="matKhau"
+      name="matKhau"
+      class="form-control"
+      ngModel
+      #matKhau="ngModel"
+      required
+    />
+    <app-error-message name="matKhau" [validator]="matKhau"></app-error-message>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      ngModel
+      #email="ngModel"
+      required
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+    />
+    <app-error-message name="email" [validator]="email"></app-error-message>
+  </div>
+
+  <div class="form-group">
+    <label for="hoTen">Họ tên</label>
+    <input
+      type="text"
+      id="hoTen"
+      name="hoTen"
+      class="form-control"
+      ngModel
+      #hoTen="ngModel"
+      required
+    />
+    <app-error-message name="hoTen" [validator]="hoTen"></app-error-message>
+  </div>
+
+  <div class="form-group">
+    <label for="soDt">Số điện thoại</label>
+    <input
+      type="tel"
+      id="soDt"
+      name="soDt"
+      class="form-control"
+      ngModel
+      #soDt="ngModel"
+      required
+    />
+    <app-error-message name="soDt" [validator]="soDt"></app-error-message>
+  </div>
+
+  <button [disabled]="signupForm.invalid" class="btn btn-success">
+    Đăng ký
+  </button>
+</form>

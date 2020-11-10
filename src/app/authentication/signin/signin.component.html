@@ -1,1 +1,33 @@
-<p>signin works!</p>
+<h1 class="text-center">Signin</h1>
+
+<form [formGroup]="signinForm" (ngSubmit)="handleSignin()">
+  <div class="form-group">
+    <label for="taiKhoan">Tài khoản</label>
+    <input
+      type="text"
+      id="taiKhoan"
+      class="form-control"
+      formControlName="taiKhoan"
+    />
+    <app-error-message
+      name="taiKhoan"
+      [validator]="signinForm.get('taiKhoan')"
+    ></app-error-message>
+  </div>
+
+  <div class="form-group">
+    <label for="matKhau">Mật khẩu</label>
+    <input
+      type="password"
+      id="matKhau"
+      class="form-control"
+      formControlName="matKhau"
+    />
+    <app-error-message
+      name="matKhau"
+      [validator]="signinForm.get('matKhau')"
+    ></app-error-message>
+  </div>
+
+  <button class="btn btn-success">Đăng nhập</button>
+</form>
