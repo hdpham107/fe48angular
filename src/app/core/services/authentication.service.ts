@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
+  // Dùng BehaviorSubject để có cơ chế theo dõi sự thay đổi của biến currentUser
+  currentUser = new BehaviorSubject(null);
+
   constructor(private http: HttpClient) {}
 
   signin(values: any): Observable<any> {
