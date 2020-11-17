@@ -7,9 +7,18 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class AuthenticationService {
   // Dùng BehaviorSubject để có cơ chế theo dõi sự thay đổi của biến currentUser
+  // Câp nhật value: currentUser.next(value)
+  // Trong component theo dõi sự thay đổi của calue: currentUser.asObservable().subcribe();
   currentUser = new BehaviorSubject(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
+
+  initCurrentUser() {
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.currentUser.next(JSON.parse(user));
+    }
+  }
 
   signin(values: any): Observable<any> {
     const url =

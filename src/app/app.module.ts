@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { AuthenticationInterceptor } from "./core/interceptors/authentication.interceptor";
 
 // Module: Là một group các component, thông thường module được đóng gói thành
 // 1 chức năng cụ thể, hoặc 1 page
@@ -30,9 +31,15 @@ import { AppComponent } from './app.component';
     HttpClientModule,
   ],
   // Nơi khai báo các services
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true,
+    }
+  ],
   // Chỉ khai báo ở AppModule
   // Chỉ định component sẽ khởi chạy đầu tiên
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

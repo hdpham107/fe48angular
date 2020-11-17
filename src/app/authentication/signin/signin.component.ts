@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/core/services/authentication.service'
 
 @Component({
   selector: 'app-signin',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SigninComponent implements OnInit {
   signinForm: FormGroup;
 
-  constructor() {
+  constructor(private auth: AuthenticationService) {
     this.signinForm = new FormGroup({
       taiKhoan: new FormControl('', [
         Validators.required,
@@ -19,7 +20,7 @@ export class SigninComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   handleSignin() {
     this.signinForm.markAllAsTouched();
@@ -28,5 +29,12 @@ export class SigninComponent implements OnInit {
     }
 
     console.log(this.signinForm.value);
+
+    this.auth.signin(this.signinForm.value).subscribe({
+      next: (result) => {
+        localStorage.setItem('user', JSON.stringify(result))
+
+      }
+    })
   }
 }

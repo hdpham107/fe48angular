@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "fe48-angular"
+  "defaultProject": "fe48-angular",
+  "cli": {
+    "analytics": "5a0b0ea0-0dd2-406b-9384-e7ce8ab4e98b"
+  }
 }

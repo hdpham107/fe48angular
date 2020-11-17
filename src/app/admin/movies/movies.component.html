@@ -1,1 +1,62 @@
-<p>movies works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Mã phim</th>
+      <th>Tên phim</th>
+      <th>Ngày khởi chiếu</th>
+      <th>Hinh anh</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movieList">
+      <td>{{ movie.maPhim }}</td>
+      <td>{{ movie.tenPhim }}</td>
+      <td>{{ movie.ngayKhoiChieu | date: "dd/MM/yyyy" }}</td>
+      <td>
+        <img [src]="movie.hinhAnh" width="40px" height="40px" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <!-- previous page -->
+    <li class="page-item" [class]="{ disabled: currentPage === 1 }">
+      <a
+        class="page-link"
+        routerLink="/admin/movies"
+        [queryParams]="{ page: currentPage - 1 }"
+        aria-label="Previous"
+      >
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <!-- pages -->
+    <li
+      *ngFor="let page of pages"
+      class="page-item"
+      [class]="{ active: page === currentPage }"
+    >
+      <a
+        class="page-link"
+        routerLink="/admin/movies"
+        [queryParams]="{ page: page }"
+      >
+        {{ page }}
+      </a>
+    </li>
+    <!-- next page -->
+    <li class="page-item" [class]="{ disabled: currentPage === totalPages }">
+      <a
+        class="page-link"
+        routerLink="/admin/movies"
+        [queryParams]="{ page: currentPage + 1 }"
+        aria-label="Next"
+      >
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>

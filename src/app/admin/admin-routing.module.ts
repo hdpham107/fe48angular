@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { MoviesComponent } from './movies/movies.component';
 import { UsersComponent } from './users/users.component';
+import { AddMovieComponent } from "./add-movie/add-movie.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
         component: UsersComponent,
       },
       { path: 'movies', component: MoviesComponent },
+      { path: 'movies/add', component: AddMovieComponent },
     ],
   },
 ];
@@ -26,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule { }

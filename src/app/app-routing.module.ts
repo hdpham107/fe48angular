@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminGuard } from "src/app/core/guard/admin.guard";
 
 const routes: Routes = [
   // { path: '', component: DemoComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   // Lazy load
   {
     path: 'admin',
+    canActivate: [AdminGuard], // mình muốn bảo vệ route nào thì gắn canActivate vào là được
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
   },
@@ -37,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
